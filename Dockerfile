@@ -5,7 +5,7 @@ ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update && apt-get install -y \
     git \
     vim \
-    python3 \
+    python3.7 \
     python3-pip \
     nginx \
     supervisor \
@@ -25,10 +25,6 @@ COPY supervisor.conf /etc/supervisor/conf.d/
 
 # mysql config
 COPY my.cnf /etc/mysql/
-
-# uWSGI config
-COPY uwsgi.ini /home/django/
-COPY uwsgi_params /home/django/
 
 # Model_example content
 COPY admin.py /home/django/
